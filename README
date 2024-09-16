@@ -1,6 +1,0 @@
-# mush
-
-μshell (mush) is a simple shell written in C.
-
-usage: mush [-h] [-v] [-c command] [file]
-
