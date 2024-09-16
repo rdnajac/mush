@@ -1,20 +1,26 @@
 CC := gcc
 CFLAGS := -Wall -Werror -g
 LDFLAGS :=
+INCLUDES := -Iinclude
 
+SRC_DIR := src
+OBJ_DIR := obj
 
-OBJECTS := main.o mush.o
+SOURCES := $(wildcard $(SRC_DIR)/*.c)
+OBJECTS := $(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 all: mush
 
+$(OBJ_DIR):
+	mkdir -p $@
 
 mush: $(OBJECTS)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJECTS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $^
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	rm -f mush *.o
+	rm -rf $(OBJ_DIR) mush
 
-.PHONY: clean
+.PHONY: all clean
