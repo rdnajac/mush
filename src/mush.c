@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <stdbool.h>
 #include "mush.h"
 
 #define BUFSIZE 4096
 
 char input[BUFSIZE];
+
+bool verbose = false;
 
 void prompt(void)
 {
@@ -22,3 +25,4 @@ int read_eval_print_loop(void)
 	}
 	return 0;
 }
+

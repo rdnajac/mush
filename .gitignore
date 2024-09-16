@@ -1,5 +1,4 @@
-# The executable
-mush
+build/
 
 # Prerequisites
 *.d
