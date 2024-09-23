@@ -20,7 +20,7 @@ int read_eval_print_loop(void)
 	prompt();
 	while ((n = read(STDIN_FILENO, input, sizeof(input))) > 0) {
 		if (n > 0)
-			write(STDOUT_FILENO, input, n);
+			/* write(STDOUT_FILENO, input, n); */
 		prompt();
 	}
 	return 0;

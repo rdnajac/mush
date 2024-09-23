@@ -1,5 +1,7 @@
 mush
 build/
+compile_commands.json
+.cache/clangd	
 
 # Prerequisites
 *.d
